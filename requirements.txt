@@ -6,4 +6,3 @@ pillow
 psycopg2
 celery>=5.0
 tqdm>=4.0
-__init__.py
