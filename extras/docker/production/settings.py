@@ -1,35 +1,67 @@
 import os
-#!/usr/bin/env python
-
-# Third Party
 import environ
-
-# wger
+from datetime import timedelta
 from wger.settings_global import *
 
 env = environ.Env(
-    # set casting, default value
     DJANGO_DEBUG=(bool, False)
 )
 
-# Use 'DEBUG = True' to get more details for server errors
-DEBUG = env("DJANGO_DEBUG")
+DEBUG = env("DJANGO_DEBUG", default=False)
 
-if os.environ.get('DJANGO_ADMINS'):
-    ADMINS = [env.tuple('DJANGO_ADMINS'), ]
-    MANAGERS = ADMINS
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=['localhost', '127.0.0.1', 'www.uncagedgrowth.online'])
 
-if os.environ.get("DJANGO_DB_ENGINE"):
-    DATABASES = {
-        'default': {
-            'ENGINE': env.str("DJANGO_DB_ENGINE"),
-            'NAME': env.str("DJANGO_DB_DATABASE"),
-            'USER': env.str("DJANGO_DB_USER"),
-            'PASSWORD': env.str("DJANGO_DB_PASSWORD"),
-            'HOST': env.str("DJANGO_DB_HOST"),
-            'PORT': env.int("DJANGO_DB_PORT"),
-        }
+SECRET_KEY = env.str("SECRET_KEY", "CHANGE-ME-TO-A-SECRET-STRING")
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_URL = env.str('STATIC_URL', '/static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_URL = env.str('MEDIA_URL', '/media/')
+MEDIA_ROOT = env.str("DJANGO_MEDIA_ROOT", os.path.join(BASE_DIR, 'media'))
+
+CSRF_TRUSTED_ORIGINS = env.list(
+    "CSRF_TRUSTED_ORIGINS",
+    default=['https://www.uncagedgrowth.online']
+)
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+DATABASES = {
+    'default': {
+        'ENGINE': env.str("DJANGO_DB_ENGINE", "django.db.backends.sqlite3"),
+        'NAME': env.str("DJANGO_DB_DATABASE", os.path.join(BASE_DIR, 'db.sqlite3')),
+        'USER': env.str("DJANGO_DB_USER", ""),
+        'PASSWORD': env.str("DJANGO_DB_PASSWORD", ""),
+        'HOST': env.str("DJANGO_DB_HOST", ""),
+        'PORT': env.int("DJANGO_DB_PORT", 0),
     }
+}
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env.str("EMAIL_HOST", "smtp.gmail.com")
+EMAIL_PORT = env.int("EMAIL_PORT", 587)
+EMAIL_HOST_USER = env.str("EMAIL_HOST_USER", "joerouth3386@gmail.com")
+EMAIL_HOST_PASSWORD = env.str("EMAIL_HOST_PASSWORD", "")  # Use an App Password, not your main one
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = env.str("FROM_EMAIL", "wger Workout Manager <joerouth3386@gmail.com>")
+
+# Celery (optional - only if you use it)
+CELERY_BROKER_URL = env.str("CELERY_BROKER", "redis://localhost:6379/2")
+CELERY_RESULT_BACKEND = env.str("CELERY_BACKEND", "redis://localhost:6379/2")
+
+# Auth Proxy (optional - only if you use SSO/reverse proxy login)
+AUTH_PROXY_HEADER = env.str("AUTH_PROXY_HEADER", "HTTP_X_REMOTE_USER")
+AUTH_PROXY_TRUSTED_IPS = env.list("AUTH_PROXY_TRUSTED_IPS", default=["127.0.0.1"])
+AUTH_PROXY_CREATE_UNKNOWN_USER = env.bool("AUTH_PROXY_CREATE_UNKNOWN_USER", False)
+AUTH_PROXY_USER_EMAIL_HEADER = env.str("AUTH_PROXY_USER_EMAIL_HEADER", "")
+AUTH_PROXY_USER_NAME_HEADER = env.str("AUTH_PROXY_USER_NAME_HEADER", "")
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {'console': {'class': 'logging.StreamHandler'}},
+    'root': {'handlers': ['console'], 'level': env.str('LOG_LEVEL_PYTHON', 'INFO').upper()},
+}
 else:
     DATABASES = {
         'default': {
@@ -74,7 +106,7 @@ if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 if env.bool("ENABLE_EMAIL", False):
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_HOST = env.str("EMAIL_HOST")
+    EMAIL_HOST = env.str("joerouth3386@gmail")
     EMAIL_PORT = env.int("EMAIL_PORT")
     EMAIL_HOST_USER = env.str("EMAIL_HOST_USER")
     EMAIL_HOST_PASSWORD = env.str("EMAIL_HOST_PASSWORD")
