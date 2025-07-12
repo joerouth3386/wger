@@ -1,4 +1,6 @@
+Django>=4.2,<5.0
 gunicorn
-django
-celery
 requests
+invoke
+pillow
+psycopg2
