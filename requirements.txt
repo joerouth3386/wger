@@ -4,3 +4,4 @@ requests
 invoke
 pillow
 psycopg2
+celery>=5.0
