@@ -29,4 +29,3 @@ django-axes
 django-simple-history
 django-email-verification
 django-activity-stream
-django-fontawesome-free>=3.12
