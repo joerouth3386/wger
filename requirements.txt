@@ -11,3 +11,11 @@ django-storages
 django-recaptcha
 easy-thumbnails
 django-compressor
+django-crispy-forms
+django-allauth
+django-cleanup
+django-widget-tweaks
+django-ckeditor
+django-filter
+django-autocomplete-light
+djangorestframework
