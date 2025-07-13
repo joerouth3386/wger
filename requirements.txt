@@ -22,3 +22,4 @@ djangorestframework
 crispy-bootstrap5
 djangorestframework-simplejwt
 drf_spectacular
+drf-spectacular-sidecar
