@@ -13,20 +13,23 @@ description = "FLOSS workout, fitness and weight manager/tracker"
 readme = "README.md"
 requires-python = ">=3.10"
 classifiers = [
-    # http://pypi.python.org/pypi?%3Aaction=list_classifiers
-    'Development Status :: 5 - Production/Stable',
-    'Environment :: Web Environment',
-    'Intended Audience :: Other Audience',
-    'Framework :: Django',
-    'License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)',
-    'Operating System :: OS Independent',
-    'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.10',
-    'Programming Language :: Python :: 3.11',
-    'Programming Language :: Python :: 3.12',
-    'Programming Language :: Python :: 3.13',
+    # https://pypi.org/pypi?%3Aaction=list_classifiers
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Healthcare Industry",
+    "Intended Audience :: Other Audience",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Health :: Fitness",
 ]
-
 dependencies = [
     "bleach[css]~=6.2",
     "celery[redis]==5.5.3",
