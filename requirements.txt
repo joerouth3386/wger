@@ -21,3 +21,4 @@ django-autocomplete-light
 djangorestframework
 crispy-bootstrap5
 djangorestframework-simplejwt
+drf_spectacular
