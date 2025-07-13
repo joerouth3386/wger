@@ -19,3 +19,4 @@ django-ckeditor
 django-filter
 django-autocomplete-light
 djangorestframework
+django-crispy-bootstrap5
