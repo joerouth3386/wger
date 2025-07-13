@@ -1,4 +1,4 @@
-Django>=0.4.5
+Django>=4.2,<5.0
 gunicorn
 requests
 invoke
@@ -29,3 +29,4 @@ django-axes
 django-simple-history
 django-email-verification
 django-activity-stream
+django-fontawesome-free
