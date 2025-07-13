@@ -25,3 +25,4 @@ drf_spectacular
 drf-spectacular-sidecar
 django-bootstrap-breadcrumbs
 django-cors-headers
+django-axes
