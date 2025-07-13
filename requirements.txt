@@ -9,3 +9,4 @@ tqdm>=4.0
 django-environ
 django-storages
 django-recaptcha
+easy_thumbnails
