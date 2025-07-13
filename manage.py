@@ -24,3 +24,4 @@ if __name__ == '__main__':
     # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 
     execute_from_command_line(sys.argv)
+__init__.py
