@@ -20,3 +20,4 @@ django-filter
 django-autocomplete-light
 djangorestframework
 crispy-bootstrap5
+djangorestframework-simplejwt
