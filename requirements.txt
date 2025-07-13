@@ -10,3 +10,4 @@ django-environ
 django-storages
 django-recaptcha
 easy-thumbnails
+django-compressor
