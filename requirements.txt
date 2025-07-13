@@ -27,3 +27,4 @@ django-bootstrap-breadcrumbs
 django-cors-headers
 django-axes
 django-simple-history
+django-email-verification
