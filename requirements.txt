@@ -26,3 +26,4 @@ drf-spectacular-sidecar
 django-bootstrap-breadcrumbs
 django-cors-headers
 django-axes
+django-simple-history
