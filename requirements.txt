@@ -29,3 +29,4 @@ django-axes
 django-simple-history
 django-email-verification
 django-activity-stream
+pip-compile pyproject.toml
