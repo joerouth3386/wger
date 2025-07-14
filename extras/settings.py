@@ -1,4 +1,18 @@
-gunicorn wger.wsgi --bind 0.0.0.0:8080
+"""
+Django settings for <your_project> project.
+"""
+
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'unsafe-default')
+DEBUG = os.environ.get('DJANGO_DEBUG', '') == '1'
+ALLOWED_HOSTS = ['*']
+
+# ... rest of your Django settings ...
+
 import os
 import environ
 from datetime import timedelta
