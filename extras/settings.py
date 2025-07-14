@@ -1,3 +1,4 @@
+gunicorn wger.wsgi --bind 0.0.0.0:8080
 import os
 import environ
 from datetime import timedelta
