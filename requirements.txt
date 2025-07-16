@@ -34,3 +34,4 @@ reportlab==4.4.2
 requests==2.32.4
 tqdm==4.67.1
 tzdata==2025.2
+gunicorn~=22.0.0  # Or your preferred version (compatible with Python 3.12+)
