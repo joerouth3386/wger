@@ -1,7 +1,7 @@
 import os
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'extras.settings')  # use your path here
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'wger.settings')  # use your path here
 
 application = get_wsgi_application()
 __init__.py
